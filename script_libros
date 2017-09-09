@@ -1,0 +1,32 @@
+#!/bin/bash
+
+unzip '*.zip'
+rm *.zip
+unrar e *.rar
+rm *.rar
+
+echo "ESCANEANDO ARCHIVOS......"
+clamscan > clamscan.log
+
+#CONVERTIMOS EPUB EN PDF
+for file in *.epub; do
+    ebook-convert "$file" "`basename "$file" .epub`.pdf"
+done
+
+rm *.mov
+rm *.mobi
+rm *.azw3
+rm *.txt
+rm *.opf
+rm *.docx
+rm *.fb2
+rm *.lit
+rm *.lrf
+rm *.jpg
+rm *.png
+rm *.epub
+
+#MOVEMOS LOS ARCHIVOS
+mv *.pdf /home/p4tria/Escritorio/Enlace\ hacia\ Vicent/Libros/Hacking/
+
+cat clamscan.log | grep -e SUMMARY -e FOUND -e Scanned -e Infected
