@@ -27,6 +27,6 @@ rm *.png
 rm *.epub
 
 #MOVEMOS LOS ARCHIVOS
-mv *.pdf /home/p4tria/Escritorio/Enlace\ hacia\ Vicent/Libros/Hacking/
+mv *.pdf <PATH>
 
 cat clamscan.log | grep -e SUMMARY -e FOUND -e Scanned -e Infected
